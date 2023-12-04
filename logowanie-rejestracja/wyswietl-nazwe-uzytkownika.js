@@ -84,4 +84,3 @@ function onDOMLoaded() {
 
 // Dodaj event do obiektu document, aby uruchomić funkcję onDOMLoaded po załadowaniu DOM
 document.addEventListener('DOMContentLoaded', onDOMLoaded);
-
