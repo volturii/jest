@@ -1,3 +1,5 @@
+// logowanie-rejestracja/wyswietl-nazwe-uzytkownika.js
+
 // Funkcja do wykonania po załadowaniu DOM
 function onDOMLoaded() {
     // Ukryj nazwę użytkownika i dropdown na początku
@@ -22,13 +24,11 @@ function onDOMLoaded() {
                 if (doc.exists) {
                     const displayName = doc.data().displayName;
 
-                    // Pokaż nazwę użytkownika po uzyskaniu danych z opóźnieniem
-                    setTimeout(() => {
-                        if (userNameElement) {
-                            userNameElement.innerText = displayName;
-                            userNameElement.style.display = 'inline-block';
-                        }
-                    }, 2000); // Opóźnienie 2000 milisekund (2 sekundy)
+                    // Pokaż nazwę użytkownika po uzyskaniu danych
+                    if (userNameElement) {
+                        userNameElement.innerText = displayName;
+                        userNameElement.style.display = 'inline-block'; // lub 'block', w zależności od potrzeb stylizacji
+                    }
 
                     // Ukryj ikonę użytkownika
                     if (userIcon) {
@@ -61,6 +61,7 @@ function onDOMLoaded() {
     // Sprawdź stan logowania po załadowaniu DOM
     auth.onAuthStateChanged((user) => {
         if (user) {
+            
             // Jeśli użytkownik jest zalogowany, pobierz i wyświetl jego dane
             getUserData(user.uid);
         } else {
@@ -83,3 +84,4 @@ function onDOMLoaded() {
 
 // Dodaj event do obiektu document, aby uruchomić funkcję onDOMLoaded po załadowaniu DOM
 document.addEventListener('DOMContentLoaded', onDOMLoaded);
+
